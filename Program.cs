@@ -57,7 +57,7 @@ namespace Unit5_6
 				user.QuantityPet = GetValue();
 
 				// Если питомец есть, вызвать метод, принимающий на вход количество питомцев и возвращающий массив их кличек(заполнение с клавиатуры);
-				user.PetNames = GetArrayOfString(user.QuantityPet, "Ниже перечислите их имена:");
+				user.PetNames = GetArrayOfString(user.QuantityPet, "Перечислите их клички:");
 			}
 
 			// Запросить количество любимых цветов;
@@ -120,10 +120,13 @@ namespace Unit5_6
 			Console.WriteLine("Фамилия: {0}", User.Surname);
 			Console.WriteLine("Возраст: {0}", User.Age);
 			Console.WriteLine("Наличие питомца: {0}", User.HasPet.ToString());
-			Console.WriteLine("Клички: ");
-			foreach (var petName in User.PetNames)
+			if (User.HasPet)
             {
-				Console.WriteLine("		{0}", petName);
+				Console.WriteLine("Клички: ");
+				foreach (var petName in User.PetNames)
+				{
+					Console.WriteLine("		{0}", petName);
+				}
 			}
 			Console.WriteLine("Количество любимых цветов: {0}", User.QuantityFavColors);
 			Console.WriteLine("Цвета: ");
